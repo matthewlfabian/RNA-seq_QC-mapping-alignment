@@ -3,13 +3,16 @@
 
 rule Trim_Galore:
     input:
-        r1 = "FASTQ/raw/{sample}_1.fastq.gz",
-        r2 = "FASTQ/raw/{sample}_2.fastq.gz"
+        r1 = "FASTQ/raw/{sample}_R1_001.fastq.gz",
+        r2 = "FASTQ/raw/{sample}_R2_001.fastq.gz"
     output:
-        r1 = "FASTQ/trimmed/{sample}_1.fastq.gz",
-        r2 = "FASTQ/trimmed/{sample}_2.fastq.gz"
-    conda: "../envs/BBDuk.yaml"
+        r1 = "FASTQ/trimmed/{sample}_R1_001_val_1.fq.gz",
+        r2 = "FASTQ/trimmed/{sample}_R2_001_val_2.fq.gz"
+    conda: "../envs/Trim_Galore.yaml"
+    log:
+        "logs/Trim_Galore/{sample}.log"
     shell:
-        "bbduk.sh in1={input.r1} in2={input.r2} "
-        "out1={output.r1} out2={output.r2} "
-        "qtrim=r trimq=15 ftm=5 minlength=100 ftl=10 trimpolygright=5"
+        "trim_galore --illumina --paired --clip_R1 15 --clip_R2 15 --fastqc "
+        "-o FASTQ/trimmed/ "
+        "{input.r1} {input.r2} "
+        "> {log} 2>&1"
