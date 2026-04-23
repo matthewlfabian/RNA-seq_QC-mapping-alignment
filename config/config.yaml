@@ -7,5 +7,5 @@ samples:
 
 read_extension: "fastq.gz"
 outdir: "FASTQ/trimmed"
-QUAST_reference: "QUAST/<your reference>.fasta"
-Prokka_proteins: "Prokka/<your reference>.faa"
+ref_assembly: "reference/ref_assembly.fasta"
+ref_annotations: "reference/ref_annotations.gtf"
