@@ -18,3 +18,23 @@ rule HISAT2_index:
         "--exon {output.exons} "
         "{input.fasta} reference/index/genome "
         "> {log} 2>&1"
+
+rule hisat2_align:
+    input:
+        r1    = "FASTQ/trimmed/{sample}_R1_001_val_1.fq.gz",
+        r2    = "FASTQ/trimmed/{sample}_R2_001_val_2.fq.gz",
+        index = expand("reference/index/genome.{n}.ht2", n=range(1, 9))
+    output:
+        sam = "HISAT2/{sample}.sam"
+    threads: 8
+    conda: "../envs/HISAT2.yaml"
+    log:
+        "logs/hisat2_align/{sample}.log"
+    shell:
+        "hisat2 -p {threads} "
+        "-x reference/index/genome "
+        "--dta "
+        "-1 {input.r1} "
+        "-2 {input.r2} "
+        "-S {output.sam} "
+        "> {log} 2>&1"
