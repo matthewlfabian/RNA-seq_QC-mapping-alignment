@@ -1,0 +1,10 @@
+# add your sample (e.g., "strain_01") & reference (e.g., "ref_genome") names below
+
+samples:
+  - <sample1>
+  - ...
+
+read_extension: "fastq.gz"
+outdir: "FASTQ/trimmed"
+QUAST_reference: "QUAST/<your reference>.fasta"
+Prokka_proteins: "Prokka/<your reference>.faa"
