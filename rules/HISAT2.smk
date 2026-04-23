@@ -1,4 +1,4 @@
-rule hisat2_index:
+rule HISAT2_index:
     input:
         fasta = config["ref_assembly"],
         gtf   = config["ref_annotations"]
@@ -9,7 +9,7 @@ rule hisat2_index:
     threads: 8
     conda: "../envs/HISAT2.yaml"
     log:
-        "logs/hisat2_index.log"
+        "logs/HISAT2_index.log"
     shell:
         "hisat2_extract_splice_sites.py {input.gtf} > {output.splice_sites} && "
         "hisat2_extract_exons.py {input.gtf} > {output.exons} && "
