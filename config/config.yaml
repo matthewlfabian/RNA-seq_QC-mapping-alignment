@@ -6,5 +6,6 @@ samples:
   - DTS-D-3
 
 read_extension: "fastq.gz"
+outdir: "FASTQ/trimmed"
 ref_assembly: "reference/ref_assembly.fasta"
 ref_annotations: "reference/ref_annotations.gtf"
