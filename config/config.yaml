@@ -1,8 +1,9 @@
 # add your sample (e.g., "strain_01") & reference (e.g., "ref_genome") names below
 
 samples:
-  - <sample1>
-  - ...
+  - DTS-D-1
+  - DTS-D-2
+  - DTS-D-3
 
 read_extension: "fastq.gz"
 outdir: "FASTQ/trimmed"
