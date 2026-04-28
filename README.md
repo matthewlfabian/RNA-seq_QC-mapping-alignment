@@ -1,6 +1,6 @@
 # RNA-seq_QC-mapping-alignment
 Snakemake pipeline for FASTQ trimming (Trim Galore)0 & QC (FastQC; MultiQC), indexing/mapping to reference genome (HISAT2), SAM=>BAM conversion & mapping QC (SAMtools),
-& gene-level (featureCounts) & splice-aware (rMATS) quantitation.
+& gene-level (featureCounts) & splice-aware (rMATS) quantitation for Illumina paired-end reads.
 
 # Overview
 
@@ -8,18 +8,20 @@ This pipeline utilizes paired-end Illumina reads as initial input for the
 following steps:
 
 - Raw read quality assessment (FastQC, MultiQC)
-- Adapter and quality trimming (BBDuk)
+- Adapter and quality trimming (Trim Galore)
 - Post-trimming quality assessment (FastQC, MultiQC)
-- Genome assembly (SPAdes)
-- Assembly quality assessment (QUAST)
-- Annotation (Prokka)
+- Indexing of annotated reference genome (HISAT2)
+- Read mapping to reference genome (HISAT2)
+- SAM => BAM conversion & read mapping QC (SAMtools)
+- Gene-level read quantitation (featureCounts)
+- Splice-aware read quantitation (rMATS)
 
 Snakemake is a workflow management tool that facilitates organization & 
 reproducibility in bioinformatics workflows. Packages are designated via .yaml
 files ("envs" directory), & their corresponding parameters are found in .smk files in the "rules"
-directory. The "rule all" section of the Snakefile lists target (e.g., trimmed FASTQs, 
-scaffold FASTAs) outputs for the workflow, & Snakemake automatically determines which
-part(s) of the workflow to run, skipping any step whose output file already exists.
+directory. The "rule all" section of the Snakefile lists target (e.g., trimmed FASTQs) outputs for the workflow, 
+& Snakemake automatically determines which part(s) of the workflow to run, skipping any step whose 
+output file already exists.
 
 # Dependencies
 
@@ -28,16 +30,16 @@ environment files in the `envs/` directory.
 
 - FastQC
 - MultiQC
-- BBDuk
-- SPAdes
-- QUAST
-- Prodigal
-- Prokka
+- Trim Galore
+- HISAT2
+- SAMtools
+- featureCounts
+- rMATS
 
 # Setup
-1.) Create a parent directory (e.g., "assembly"), & in that directory, clone the repository and activate the Snakemake environment:
+1.) Create a parent directory (e.g., "RNA-seq"), & in that directory, clone the repository and activate the Snakemake environment:
 
-  git clone https://github.com/matthewlfabian/Bacterial-genome-assembly_Illumina-reads.git
+  git clone https://github.com/matthewlfabian/RNA-seq_QC-mapping-alignment.git
   
   conda activate snakemake
 
