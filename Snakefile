@@ -15,7 +15,7 @@ rule all:
         "MultiQC/raw/multiqc_report.html",
     # Trim_Galore trimming and trimmed FASTQ QC assessment
         expand(config["outdir"] + "/{sample}_R1_001_val_1.fq.gz", sample=SAMPLES),
-        expand(config["outdir"] + "/{sample}_R2_001_val_1.fq.gz", sample=SAMPLES),
+        expand(config["outdir"] + "/{sample}_R2_001_val_2.fq.gz", sample=SAMPLES),
         expand("FastQC/trimmed/{sample}_1_fastqc.html", sample=SAMPLES),
         expand("FastQC/trimmed/{sample}_2_fastqc.html", sample=SAMPLES),
         "MultiQC/trimmed/multiqc_report.html",
