@@ -1,5 +1,3 @@
-# Steps: FastQC & report => trimming via Trim Galore => FastQC & report => HISAT2 indexing & mapping => SAM-to-BAM conversion via Samtools => gene-level (featureCounts) & splice-aware (rMATS) quantitation
-
 configfile: "config/config.yaml"
 
 SAMPLES = config["samples"]
