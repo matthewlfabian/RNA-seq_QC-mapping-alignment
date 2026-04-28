@@ -13,7 +13,7 @@ rule FastQC_raw:
 rule FastQC_trimmed:
     input:
         r1 = "FASTQ/trimmed/{sample}_R1_001_val_1.fq.gz",
-        r2 = "FASTQ/trimmed/{sample}_R2_001_val_1.fq.gz"
+        r2 = "FASTQ/trimmed/{sample}_R2_001_val_2.fq.gz"
     output:
         html1 = "FastQC/trimmed/{sample}_1_fastqc.html",
         html2 = "FastQC/trimmed/{sample}_2_fastqc.html"
