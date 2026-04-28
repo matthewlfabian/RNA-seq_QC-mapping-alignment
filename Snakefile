@@ -17,7 +17,7 @@ rule all:
         expand(config["outdir"] + "/{sample}_R1_001_val_1.fq.gz", sample=SAMPLES),
         expand(config["outdir"] + "/{sample}_R2_001_val_2.fq.gz", sample=SAMPLES),
         expand("FastQC/trimmed/{sample}_R1_001_val_1_fastqc.html", sample=SAMPLES),
-        expand("FastQC/trimmed/{sample}_R1_001_val_2_fastqc.html", sample=SAMPLES),
+        expand("FastQC/trimmed/{sample}_R2_001_val_2_fastqc.html", sample=SAMPLES),
         "MultiQC/trimmed/multiqc_report.html",
     # HISAT2 indexing
         expand("reference/index/genome.{n}.ht2", n=range(1, 9)),
