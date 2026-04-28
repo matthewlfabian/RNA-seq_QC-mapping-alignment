@@ -3,8 +3,10 @@ rule FastQC_raw:
         r1 = "FASTQ/raw/{sample}_R1_001.fastq.gz",
         r2 = "FASTQ/raw/{sample}_R2_001.fastq.gz"
     output:
-        html1 = "FastQC/raw/{sample}_1_fastqc.html",
-        html2 = "FastQC/raw/{sample}_2_fastqc.html"
+        html1 = "FastQC/raw/{sample}_R1_001_fastqc.html",
+        html2 = "FastQC/raw/{sample}_R2_001_fastqc.html",
+        zip1  = "FastQC/raw/{sample}_R1_001_fastqc.zip",
+        zip2  = "FastQC/raw/{sample}_R2_001_fastqc.zip"
     threads: 10
     conda: "../envs/FastQC.yaml"
     shell:
@@ -15,8 +17,10 @@ rule FastQC_trimmed:
         r1 = "FASTQ/trimmed/{sample}_R1_001_val_1.fq.gz",
         r2 = "FASTQ/trimmed/{sample}_R2_001_val_2.fq.gz"
     output:
-        html1 = "FastQC/trimmed/{sample}_1_fastqc.html",
-        html2 = "FastQC/trimmed/{sample}_2_fastqc.html"
+        html1 = "FastQC/trimmed/{sample}_R1_001_val_1_fastqc.html",
+        html2 = "FastQC/trimmed/{sample}_R2_001_val_2_fastqc.html",
+        zip1  = "FastQC/trimmed/{sample}_R1_001_val_1_fastqc.zip",
+        zip2  = "FastQC/trimmed/{sample}_R2_001_val_2_fastqc.zip"
     threads: 10
     conda: "../envs/FastQC.yaml"
     shell:
