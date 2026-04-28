@@ -37,13 +37,13 @@ environment files in the `envs/` directory.
 - rMATS
 
 # Setup
-1.) Create a parent directory (e.g., "RNA-seq"), & in that directory, clone the repository and activate the Snakemake environment:
+1.) In a parent directory of your choice, clone the repository, which automatically creates a folder for the Snakemake pipeline:
 
   git clone https://github.com/matthewlfabian/RNA-seq_QC-mapping-alignment.git
   
   conda activate snakemake
 
-2.) Verify the installed repository:
+2.) Navigate to the newly created directory & verify the installed repository:
 
   git remote -v
 
@@ -55,15 +55,16 @@ strain/sample names from FASTQ files are identified as follows: <strain_1>_1.fas
     - SAMPLE2
     - ...
 
-4.) In your parent directory, create the subdirectories "FASTQ" & "FASTQ/raw", then place your raw FASTQ files (matching the sample
-  names above) in FASTQ/raw.
+4.) In your Snakemake directory, create the subdirectories "FASTQ" & "FASTQ/raw", then place your raw FASTQ files (matching the sample
+  names above) in "FASTQ/raw".
 
-5.) Edit "config/config.yaml" to include the nucleotide (QUAST_reference: "QUAST/<your reference>.fasta") & amino acid
-(Prokka_proteins: "Prokka/<your reference>.faa") FASTAs for your reference genome.
+5.) In your Snakemake directory, create the subdirectory "reference", then place your reference genome assembly FASTA (e.g., "ref_assembly.fasta")
+& annotations GTF (e.g., "ref_annotations.gtf").
 
-6.) In your parent directory, create the subdirectories "QUAST" & "Prokka". In "QUAST", add your nucleotide reference genome FASTA 
-(<your reference>.fasta). In "Prokka", add your amino acid reference genome FASTA (<your reference>.faa). The file names must match
-those entered into "config/config/yaml" in step 5.).
+6.) Edit "config/config.yaml" to include the assembly FASTA (ref_assembly: "reference/<your reference assembly>.fasta") & annotations GTF 
+(ref_annotation: "reference/<your reference annotations>.gtf") for your reference genome, per step 5.).
+
+
 
 # Running the Pipeline
 
