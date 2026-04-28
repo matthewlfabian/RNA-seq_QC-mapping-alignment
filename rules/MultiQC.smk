@@ -10,8 +10,8 @@ rule MultiQC_raw:
 
 rule MultiQC_trimmed:
     input:
-        expand("FastQC/trimmed/{sample}_R1_001_fastqc.html", sample=SAMPLES),
-        expand("FastQC/trimmed/{sample}_R2_001_fastqc.html", sample=SAMPLES)
+        expand("FastQC/trimmed/{sample}_R1_001_val_1_fastqc.html", sample=SAMPLES),
+        expand("FastQC/trimmed/{sample}_R2_001_val_2_fastqc.html", sample=SAMPLES)
     output:
         "MultiQC/trimmed/multiqc_report.html"
     conda: "../envs/MultiQC.yaml"
