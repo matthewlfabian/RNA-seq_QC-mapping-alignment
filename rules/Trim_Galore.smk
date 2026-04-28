@@ -12,7 +12,7 @@ rule Trim_Galore:
     log:
         "logs/Trim_Galore/{sample}.log"
     shell:
-        "trim_galore --illumina --paired --clip_R1 15 --clip_R2 15 --fastqc "
+        "trim_galore --illumina --paired --clip_R1 15 --clip_R2 15 "
         "-o FASTQ/trimmed/ "
         "{input.r1} {input.r2} "
         "> {log} 2>&1"
