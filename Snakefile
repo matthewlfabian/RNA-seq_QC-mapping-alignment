@@ -25,3 +25,7 @@ rule all:
         "reference/exons.tsv",
     # HISAT2 mapping
         expand("HISAT2/{sample}.sam", sample=SAMPLES),
+    #SAMtools SAM=>BAM & QC
+        expand("HISAT2/{sample}_sorted.bam", sample=SAMPLES),
+        expand("HISAT2/{sample}_sorted.bam.bai", sample=SAMPLES),
+        expand("logs/samtools/{sample}_flagstat.txt", sample=SAMPLES),
