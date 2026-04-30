@@ -11,7 +11,7 @@ rule samtools:
     log:
         "logs/samtools/{sample}.log"
     shell:
-        "samtools view -@ {threads} -bS {input.sam} -o {output.bam} 2>> {log} && "
-        "samtools sort -@ {threads} {output.bam} -o {output.sorted} 2>> {log} && "
+        "samtools view -@ {threads} -bS {input.sam} 2>> {log} | "
+        "samtools sort -@ {threads} -o {output.sorted} 2>> {log} && "
         "samtools index {output.sorted} 2>> {log} && "
         "samtools flagstat {output.sorted} > {output.flagstat} 2>> {log}"
