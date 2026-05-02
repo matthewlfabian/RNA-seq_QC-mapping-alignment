@@ -1,9 +1,16 @@
 # add your sample (e.g., "strain_01") & reference (e.g., "ref_genome") names below
 
 samples:
-  - DTS-D-1
-  - DTS-D-2
-  - DTS-D-3
+  - DTS-S-1
+  - DTS-S-2
+  - DTS-S-3
+  - DTS-W-1
+  - DTS-W-2
+  - DTS-W-3
+
+conditions:
+  -test: [DTS-S-1, DTS-S-2, DTS-S-3]
+  -control: [DTS-W-1, DTS-W-2, DTS-W-3]
 
 read_extension: "fastq.gz"
 outdir: "FASTQ/trimmed"
