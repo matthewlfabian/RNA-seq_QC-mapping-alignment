@@ -29,4 +29,4 @@ rule all:
     #SAMtools SAM=>BAM & QC
         expand("HISAT2/{sample}_sorted.bam", sample=SAMPLES),
         expand("HISAT2/{sample}_sorted.bam.bai", sample=SAMPLES),
-        expand("logs/samtools/{sample}_flagstat.txt", sample=SAMPLES),
+        expand("logs/SAMtools/{sample}_flagstat.txt", sample=SAMPLES),
