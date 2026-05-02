@@ -10,7 +10,11 @@ rule featureCounts:
     log:
         "logs/featureCounts.log"
     shell:
-        "featureCounts -T {threads} -p -s 0 "  
+        "featureCounts "
+        "-T {threads} "
+        "-p --countReadPairs "
+        "-t exon "
+        "-g gene_id "
         "-a {input.gtf} "
         "-o {output.counts} "
         "{input.bams} "
