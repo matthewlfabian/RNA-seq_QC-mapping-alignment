@@ -6,6 +6,7 @@ include: "rules/FastQC.smk"
 include: "rules/MultiQC.smk"
 include: "rules/Trim_Galore.smk"
 include: "rules/HISAT2.smk"
+include: "rules/SAMtools.smk"
 
 rule all:
     input:
