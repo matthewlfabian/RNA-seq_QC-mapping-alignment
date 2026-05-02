@@ -5,11 +5,11 @@ rule samtools:
         bam     = "HISAT2/{sample}.bam",
         sorted  = "HISAT2/{sample}_sorted.bam",
         index   = "HISAT2/{sample}_sorted.bam.bai",
-        flagstat = "logs/samtools/{sample}_flagstat.txt"
+        flagstat = "logs/SAMtools/{sample}_flagstat.txt"
     threads: 8
-    conda: "../envs/samtools.yaml"
+    conda: "../envs/SAMtools.yaml"
     log:
-        "logs/samtools/{sample}.log"
+        "logs/SAMtools/{sample}.log"
     shell:
         "samtools view -@ {threads} -bS {input.sam} 2>> {log} | "
         "samtools sort -@ {threads} -o {output.sorted} 2>> {log} && "
