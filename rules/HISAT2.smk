@@ -7,6 +7,9 @@ rule HISAT2_index:
         exons        = "reference/exons.tsv",
         index        = expand("reference/index/genome.{n}.ht2", n=range(1, 9))
     threads: 8
+    resources:
+        mem_mb = 100000,      # 100GB — adjust for your genome size
+        runtime = "08:00:00"
     conda: "../envs/HISAT2.yaml"
     log:
         "logs/HISAT2_index.log"
@@ -25,13 +28,15 @@ rule hisat2_align:
         r2    = "FASTQ/trimmed/{sample}_R2_001_val_2.fq.gz",
         index = expand("reference/index/genome.{n}.ht2", n=range(1, 9))
     output:
-        sam = "HISAT2/{sample}.sam"
+        sam = temp("HISAT2/{sample}.sam")    # temp — deleted after SAMtools finishes
     threads: 8
+    resources:
+        mem_mb = 32000,
+        runtime = "04:00:00"
     conda: "../envs/HISAT2.yaml"
     log:
         "logs/hisat2_align/{sample}.log"
     shell:
-        "mkdir -p logs/hisat2_align && "
         "hisat2 -p {threads} "
         "-x reference/index/genome "
         "--dta "
