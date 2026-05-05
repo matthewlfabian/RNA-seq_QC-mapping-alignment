@@ -21,7 +21,7 @@ rule MultiQC_trimmed:
         "MultiQC/trimmed/multiqc_report.html"
     resources:
         mem_mb = 4000,
-        runtime = "00:30:00"
+        runtime = 30
     conda: "../envs/MultiQC.yaml"
     log:
         "logs/MultiQC/trimmed.log"
