@@ -10,7 +10,7 @@ rule FastQC_raw:
     threads: 2
     resources:
         mem_mb = 4000,
-        runtime = "01:00:00"
+        runtime = 60
     conda: "../envs/FastQC.yaml"
     log:
         "logs/FastQC/raw/{sample}.log"    
