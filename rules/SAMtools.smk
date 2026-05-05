@@ -8,7 +8,7 @@ rule samtools:
     threads: 8
     resources:
         mem_mb = 16000,
-        runtime = "02:00:00"
+        runtime = 60
     conda: "../envs/SAMtools.yaml"
     log:
         "logs/SAMtools/{sample}.log"
