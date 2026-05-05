@@ -10,7 +10,7 @@ rule Trim_Galore:
     threads: 4
     resources:
         mem_mb = 16000,
-        runtime = "02:00:00"
+        runtime = 120
     conda: "../envs/Trim_Galore.yaml"
     log:
         "logs/Trim_Galore/{sample}.log"
