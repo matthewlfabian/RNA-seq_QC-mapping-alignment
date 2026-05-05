@@ -9,7 +9,7 @@ rule HISAT2_index:
     threads: 8
     resources:
         mem_mb = 100000,      # 100GB — adjust for your genome size
-        runtime = "08:00:00"
+        runtime = 480
     conda: "../envs/HISAT2.yaml"
     log:
         "logs/HISAT2_index.log"
