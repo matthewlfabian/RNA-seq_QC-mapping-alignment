@@ -9,7 +9,7 @@ rule rMATS:
         b1          = ",".join(expand("HISAT2/{sample}_sorted.bam",
                         sample=config["conditions"]["control"])),
         b2          = ",".join(expand("HISAT2/{sample}_sorted.bam",
-                        sample=config["conditions"]["treatment"])),
+                        sample=config["conditions"]["test"])),
         read_length = config["read_length"]
     threads: 8
     resources:
