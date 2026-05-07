@@ -23,6 +23,10 @@ directory. The "rule all" section of the Snakefile lists target (e.g., trimmed F
 & Snakemake automatically determines which part(s) of the workflow to run, skipping any step whose 
 output file already exists.
 
+This workflow uses the Snakemake SLURM executor plug-in, which utilizes Snakemake as a coordinator to run components of 
+the workflow as independent, parallel jobs, where possible. For example, FASTQ trimming via Trim Galore for 12 samples will produce The configurations for this approach are stored in profiles/slurm/config.yaml, 
+
+
 # Dependencies
 
 All dependencies are managed automatically via Conda using the 
