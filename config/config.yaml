@@ -9,8 +9,8 @@ samples:
   - DTS-W-3
 
 conditions:
-  -test: [DTS-S-1, DTS-S-2, DTS-S-3]
-  -control: [DTS-W-1, DTS-W-2, DTS-W-3]
+  test: [DTS-S-1, DTS-S-2, DTS-S-3]
+  control: [DTS-W-1, DTS-W-2, DTS-W-3]
 
 read_length: 150
 strandedness: 0
