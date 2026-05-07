@@ -37,17 +37,23 @@ environment files in the `envs/` directory.
 - rMATS
 
 # Setup
-1.) In a parent directory of your choice, clone the repository, which automatically creates a folder for the Snakemake pipeline:
+1.) If Snakemake isn't preloaded on your HPCC, install Snakemake:
+
+  conda env create -f envs/snakemake.yaml
+
+2.) Install the SLURM plug-in for Snakemake:
+
+  pip install snakemake-executor-plugin-slurm
+
+3.) In a parent directory of your choice, clone the repository, which automatically creates a folder for the Snakemake pipeline:
 
   git clone https://github.com/matthewlfabian/RNA-seq_QC-mapping-alignment.git
   
-  conda activate snakemake
-
-2.) Navigate to the newly created directory & verify the installed repository:
+4.) Navigate to the newly created directory & verify the installed repository:
 
   git remote -v
 
-3.) Edit "config/config.yaml" to include your strain/sample names. For example, for paired-end reads, 
+5.) Edit "config/config.yaml" to include your strain/sample names. For example, for paired-end reads, 
 strain/sample names from FASTQ files are identified as follows: <strain_1>_1.fastq.gz, <strain_1>_2.fastq.gz, <strain_2>_2.fastq.gz, etc.
 
   samples:
@@ -55,13 +61,13 @@ strain/sample names from FASTQ files are identified as follows: <strain_1>_1.fas
     - SAMPLE2
     - ...
 
-4.) In your Snakemake directory, create the subdirectories "FASTQ" & "FASTQ/raw", then place your raw FASTQ files (matching the sample
+6.) In your Snakemake directory, create the subdirectories "FASTQ" & "FASTQ/raw", then place your raw FASTQ files (matching the sample
   names above) in "FASTQ/raw".
 
-5.) In your Snakemake directory, create the subdirectory "reference", then place your reference genome assembly FASTA (e.g., "ref_assembly.fasta")
+7.) In your Snakemake directory, create the subdirectory "reference", then place your reference genome assembly FASTA (e.g., "ref_assembly.fasta")
 & annotations GTF file (e.g., "ref_annotations.gtf"). The GTF file should have a column, "gene_ID", assigning coordinates to gene IDs.
 
-6.) Edit "config/config.yaml" to include the assembly FASTA (ref_assembly: "reference/<your reference assembly>.fasta") & annotations GTF 
+8.) Edit "config/config.yaml" to include the assembly FASTA (ref_assembly: "reference/<your reference assembly>.fasta") & annotations GTF 
 (ref_annotation: "reference/<your reference annotations>.gtf") for your reference genome, per step 5.).
 
 
@@ -71,9 +77,10 @@ strain/sample names from FASTQ files are identified as follows: <strain_1>_1.fas
 This pipeline is designed to be run in 3 stages: 1.) initial quality assessment of raw FASTQs; 2.) FASTQ trimming and quality assessment of trimmed reads; 
 @ 3.) indexing/mapping to reference genome, SAM=>BAM conversion, & gene-level & splice-aware read quantitation. By utilizing the comment mark (#) in the Snakefile, 
 the workflow can be run stepwise, permitting the review of FastQC/MultiQC reports before subsequent steps. The workflow can be run 
-in full by "uncommenting" all stages in the Snakefile. To run the Snakemake workflow on a HPCC:
+in full by "uncommenting" all stages in the Snakefile. Snakemake must be activated (i.e., "conda activate snakemake") before running the workflow. To run the Snakemake workflow on a HPCC:
 
 ```bash
+conda activate snakemake
 snakemake --cores 10 --use-conda
 ```
 
