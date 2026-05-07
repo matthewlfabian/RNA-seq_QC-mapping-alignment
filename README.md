@@ -23,8 +23,10 @@ directory. The "rule all" section of the Snakefile lists target (e.g., trimmed F
 & Snakemake automatically determines which part(s) of the workflow to run, skipping any step whose 
 output file already exists.
 
-This workflow uses the Snakemake SLURM executor plug-in, which utilizes Snakemake as a coordinator to run components of 
-the workflow as independent, parallel jobs, where possible. For example, FASTQ trimming via Trim Galore for 12 samples will produce The configurations for this approach are stored in profiles/slurm/config.yaml, 
+This workflow uses the Snakemake SLURM executor plug-in, which utilizes Snakemake as a coordinator to run components of the workflow as independent, 
+parallel jobs, where possible. For example, FASTQ trimming via Trim Galore for 12 samples will yield 13 separate jobs: 1 job for each of the paired FASTQs, plus 
+1 job corresponding to the Snakemake coordinator job. The configurations for this approach are stored in profiles/slurm/config.yaml, & the rules for each component 
+of the workflow (e.g., Trim_Galore.smk) specify the resource requirements for that component.
 
 
 # Dependencies
