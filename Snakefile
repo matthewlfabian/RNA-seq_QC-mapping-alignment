@@ -11,9 +11,9 @@ include: "rules/SAMtools.smk"
 rule all:
     input:
     # Stage 1 - FASTQ QC assessment
-        expand("FastQC/raw/{sample}_R1_001_fastqc.html", sample=SAMPLES),
-        expand("FastQC/raw/{sample}_R2_001_fastqc.html", sample=SAMPLES),
-        "MultiQC/raw/multiqc_report.html",
+        #expand("FastQC/raw/{sample}_R1_001_fastqc.html", sample=SAMPLES),
+        #expand("FastQC/raw/{sample}_R2_001_fastqc.html", sample=SAMPLES),
+        #"MultiQC/raw/multiqc_report.html",
     # Stage 2 - Trim_Galore trimming and trimmed FASTQ QC assessment
         expand(config["outdir"] + "/{sample}_R1_001_val_1.fq.gz", sample=SAMPLES),
         expand(config["outdir"] + "/{sample}_R2_001_val_2.fq.gz", sample=SAMPLES),
