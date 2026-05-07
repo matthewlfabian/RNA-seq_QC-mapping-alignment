@@ -1,6 +1,7 @@
-# RNA-seq_QC-mapping-alignment
+# RNA-seq_QC-map-align-count_Illumina-reads
 Snakemake workflow for FASTQ trimming (Trim Galore) & QC (FastQC; MultiQC), indexing/mapping to reference genome (HISAT2), SAM=>BAM conversion & mapping QC (SAMtools),
-& gene-level (featureCounts) & splice-aware (rMATS) quantitation for Illumina paired-end reads.
+& gene-level (featureCounts) & splice-aware (rMATS) quantitation for Illumina paired-end reads. Key outputs include QC reports for raw FASTQs, trimmed FASTQs, & read mapping, 
+as well as read counts for downstream analyses (e.g., DESeq2).
 
 # Overview
 
