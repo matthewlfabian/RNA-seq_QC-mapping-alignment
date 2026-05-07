@@ -7,6 +7,8 @@ include: "rules/MultiQC.smk"
 include: "rules/Trim_Galore.smk"
 include: "rules/HISAT2.smk"
 include: "rules/SAMtools.smk"
+include: "rules/featureCounts.smk"
+include: "rules/rMATS.smk"
 
 rule all:
     input:
@@ -28,3 +30,7 @@ rule all:
         expand("HISAT2/{sample}_sorted.bam", sample=SAMPLES),
         expand("HISAT2/{sample}_sorted.bam.bai", sample=SAMPLES),
         expand("logs/SAMtools/{sample}_flagstat.txt", sample=SAMPLES),
+        "featureCounts/counts.txt",
+        "rMATS/output",
+        "featureCounts/counts.txt.summary",
+        "
