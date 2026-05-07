@@ -103,14 +103,13 @@ To proceed with trimming and a subsequent MultiQC report, "uncomment" Stage 2
 in the Snakefile & run Snakemake. Review `MultiQC/trimmed/multiqc_report.html` before 
 continuing.
 
-#### Stage 3: Assembly & quality assessment
+#### Stage 3: Mapping to indexed reference genome, SAM=>BAM conversion, & read quantitation
 To proceed with remaining steps, "uncomment" all of Stage 3 in the Snakefile & run
 Snakemake.
 
 # Adjusting parameters
 By editing the .smk files for each package in the "rules" subdirectory, parameters can be 
-individually adjusted as desired. For example, to adjust k-mer utilization for assembly 
-via SPAdes, open SPAdes.smk & edit the "-k" parameter.
+individually adjusted as desired. TBD
 
 
 # Other information
