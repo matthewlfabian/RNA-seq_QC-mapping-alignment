@@ -134,3 +134,21 @@ Matthew L. Fabian, Ph.D.
 
 
 ### References
+
+## Citations
+
+If you use this workflow, please cite the following tools:
+
+Andrews, S. (2010). FastQC: A quality control tool for high throughput sequence data. Retrieved from http://www.bioinformatics.babraham.ac.uk/projects/fastqc
+
+Ewels, P., et al. (2016). MultiQC: summarize analysis results for multiple tools and samples in a single report. Bioinformatics, 32(19), 3047–3048. https://doi.org/10.1093/bioinformatics/btw354
+
+Krueger, F. (2015). Trim Galore: a wrapper around Cutadapt and FastQC to consistently apply quality and adapter trimming to FastQ files. Retrieved from https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/
+
+Kim, D., et al. (2019). Graph-based genome alignment and genotyping with HISAT2 and HISAT-genotype. Nature Biotechnology, 37(8), 907–915. https://doi.org/10.1038/s41587-019-0201-4
+
+Danecek, P., et al. (2021). Twelve years of SAMtools and BCFtools. GigaScience, 10(2), giab008. https://doi.org/10.1093/gigascience/giab008
+
+Liao, Y., et al. (2014). featureCounts: an efficient general purpose program for assigning sequence reads to genomic features. Bioinformatics, 30(7), 923–930. https://doi.org/10.1093/bioinformatics/btt656
+
+Shen, S., et al. (2014). rMATS: Robust and flexible detection of differential alternative splicing from RNA-Seq data. Proceedings of the National Academy of Sciences, 111(51), E5593–E5601. https://doi.org/10.1073/pnas.1419161111
