@@ -8,7 +8,7 @@ rule HISAT2_index:
         index        = expand("reference/index/genome.{n}.ht2", n=range(1, 9))
     threads: 8
     resources:
-        mem_mb = 100000,      # 100GB — adjust for your genome size
+        mem_mb = 100000,
         runtime = 480
     conda: "../envs/HISAT2.yaml"
     log:
