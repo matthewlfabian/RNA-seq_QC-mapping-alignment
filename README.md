@@ -84,12 +84,16 @@ strain/sample names from FASTQ files are identified as follows: <strain_1>_1.fas
 This pipeline is designed to be run in 3 stages: 1.) initial quality assessment of raw FASTQs; 2.) FASTQ trimming and quality assessment of trimmed reads; 
 @ 3.) indexing/mapping to reference genome, SAM=>BAM conversion, & gene-level & splice-aware read quantitation. By utilizing the comment mark (#) in the Snakefile, 
 the workflow can be run stepwise, permitting the review of FastQC/MultiQC reports before subsequent steps. The workflow can be run 
-in full by "uncommenting" all stages in the Snakefile. Snakemake must be activated (i.e., "conda activate snakemake") before running the workflow. To run the Snakemake workflow on a HPCC:
+in full by "uncommenting" all stages in the Snakefile. Snakemake must be activated (i.e., "conda activate snakemake") before running the workflow. To run the Snakemake workflow locally:
 
 ```bash
 conda activate snakemake
 snakemake --cores 10 --use-conda
 ```
+
+Alternatively, run the workflow via the Slurm workload manager, which incorporates the configurations established in /profiles/slurm/config.yaml:
+
+
 
 At any stage, a "dry run" can be conducted to verify the logic of the workflow:
 
