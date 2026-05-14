@@ -91,9 +91,22 @@ conda activate snakemake
 snakemake --cores 10 --use-conda
 ```
 
-Alternatively, run the workflow via the Slurm workload manager, which incorporates the configurations established in /profiles/slurm/config.yaml:
+Alternatively, run the workflow via the Slurm workload manager, which incorporates the configurations established in /profiles/slurm/config.yaml. Update -p <your partition> &
+-A <your account> to correspond to the partition & account added to /profiles/slurm/config.yaml:
 
-
+```bash
+#SBATCH --job-name=Snakemake
+#SBATCH -p <your partition>
+#SBATCH -A <your account>
+#SBATCH --time=1-00:00:00
+#SBATCH -N 1
+#SBATCH -n 1
+#SBATCH --mem=4G
+source ~/.bashrc
+conda activate snakemake
+snakemake --unlock
+snakemake --profile profiles/slurm
+```
 
 At any stage, a "dry run" can be conducted to verify the logic of the workflow:
 
